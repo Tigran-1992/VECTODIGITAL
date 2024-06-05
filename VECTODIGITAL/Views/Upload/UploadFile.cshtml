@@ -1,0 +1,30 @@
+﻿@model VECTODIGITAL.Models.FileUploadViewModel
+@using (Html.BeginForm("UploadFile", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        <label for="file">Select file:</label>
+        <input type="file" name="File" id="file" />
+    </div>
+    <button type="submit">Upload</button>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div>
+        <p>@ViewBag.Message</p>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.FilePath))
+{
+    <div>
+        <h3>Uploaded Image:</h3>
+        <img src="@Model.FilePath" alt="Uploaded Image" style="max-width: 100%; height: auto;" />
+    </div>
+}
+
+
+
+
+
+
